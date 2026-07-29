@@ -63,6 +63,7 @@ def InstallHexagono():
        os.makedirs(program)
        shutil.copyfile(r"main.py",r"C:\Hexagono\Program\main.py" )
        shutil.copyfile(r"icon.png", r"C:\Hexagono\Program\icon.png")
+       shutil.copyfile(r"IMG_1309.png", r"C:\Hexagono\Program\IMG_1309.png")
        hasruninstaller = 1
        inst = str(hasruninstaller)
        save = open(r"C:\Hexagono\registry\Installerflags.txt", "w",) 
@@ -75,6 +76,7 @@ def InstallHexagono():
        print("How r u here")
        shutil.copyfile(r"main.py",r"C:\Hexagono\Program\main.py" )
        shutil.copyfile(r"icon.png", r"C:\Hexagono\Program\icon.png")
+       shutil.copyfile(r"IMG_1309.png", r"C:\Hexagono\Program\IMG_1309.png")       
        hasruninstaller = 1
        inst = str(hasruninstaller)
        save = open(r"C:\Hexagono\registry\Installerflags.txt", "w")
