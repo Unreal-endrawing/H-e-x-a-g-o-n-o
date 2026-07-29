@@ -1,10 +1,10 @@
 # H-e-x-a-g-o-n-o
 Retronim : "Herramienta Ecologica "X" para Acelerar Graficación de datos Otenidos no Oblicua"
 
-# Usage
+## Usage
 Wip
 
-# Installation method
+## Installation method
 
 *Download source or relase
 
@@ -12,8 +12,8 @@ Wip
 
 *Run
 
-# Necessary dependencies for running the programs
-## Hexagono (main.py)
+## Necessary dependencies for running the programs
+### Hexagono (main.py)
 
 *tkinter (will be removed very soon)
 *runpy (does nothing yet)
@@ -23,7 +23,7 @@ Wip
 *rembg
 *PyQt6
 
-## Installer (Installer.py)
+### Installer (Installer.py)
 
 *os
 *shutil
