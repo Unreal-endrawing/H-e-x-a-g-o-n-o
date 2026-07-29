@@ -13,6 +13,7 @@ Hexagono (main.py)
 *PyQt6
 
 Installer (Installer.py)
+
 *os
 *shutil
 *tkinter
