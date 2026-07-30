@@ -14,120 +14,94 @@ from PySide6.QtCore import *
 #from PySide6,Q
 #TF am i doing
 PicTp = "IMG_1309.png"
-BuildVersion = "0.1.0 Azucar morena"
+BuildVersion = "0.1.0b2 Azucar morena"
 CarbonIndexEntries = []
+NameValue = [] #This list will be flushed repeteadly
 
 #print("Welcome to HEXAGONO command line fallback, this is not the way it should be used, but anyways")
 #Code for the BackEnd goes here
 def GetSubjectPicture():
     print("Not functional yet...")
+
 def removeBackground():
     input = Image.open(PicTp)
     output = remove(input)
     output.save("Output.png")
+
+def BackendCarbonEntryCreator(List):
+   print("We called the function, hooray")
+    
+
+
+
 def BackendCarbonRead():
   with open(r"registry\CarbonIndex.txt") as Entries:
     print(Entries)  #UI Code Goes Here    
     PreList = Entries.read()
     print(PreList)
-    CarbonIndexEntries = PreList.split()
+    global CarbonIndexEntries
+    CarbonIndexEntries = PreList.split("#")
     print(CarbonIndexEntries)
-    if (len(CarbonIndexEntries) - 1 ) > 0:
-        for t in range(len(CarbonIndexEntries) - 1):
-         print("Here are the entries in the Carbon Editor")
-         print(t)
-         #Need to add edit function for existing entries
+    if (len(CarbonIndexEntries) - 1 ) > 0: #Reserve first
+         return (len(CarbonIndexEntries) - 1)
     else:
-        print("hmm, no entries yet") 
-        print("Should we create an entry to start")
-        YesNoCreate = input("1 - yes, 2 - no")
-        if YesNoCreate == "1":
-            print("Need to add a CarbonEntryCreator() function upstream")
+         return 0
 #to be obliterated in milestone 6
-class Mainwindows(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Hexagon QDDemo")
-        layout3 = QGridLayout()
-        self.label = QLabel("Hexagono GUI tool")
-        self.label.setFixedSize(100, 30)
-        self.setWindowIcon(QtGui.QIcon("icon.png"))
-        button = QPushButton("Argentum") #, currently pre-milestone 1; the future milestones are \n Milestone 1 - The main menu gets a layout \n Milestone 2 - Carbon is up and running \n Milestone 3 - Multiple File Output support \n Milestone 4 - File selection \n Milestone 5 - Color isolation \n Milestone 6 - Finished UI and graphics")
-        #button.setCheckable(True)
-        button.clicked.connect(self.the_button_was_clicked) #Laugh at me following tutorials all ypu want
-        button.setFixedSize(QSize(100, 30))
-        Button2 = QPushButton("Carbon")
-        #Button2.setCheckable(True)
-        Button2.clicked.connect(self.Button2_click)
-        Button2.setFixedSize(QSize(100, 30))
-        Button3 = QPushButton("Cool Stuf for the future")#"Cool Stuf for the future"
-        Button3.clicked.connect(self.Button3_click)
-        VersionString = QLabel(BuildVersion)
-        VersionString.setFixedSize(QSize(140, 30))
-        layout3.addWidget(self.label, 0, 2)
-        layout3.addWidget(button, 1, 2)
-        layout3.addWidget(Button2, 2, 2 )
-        layout3.addWidget(Button3, 3, 2)
-        layout3.addWidget(VersionString, 4, 2 )
-        widget = QWidget()
-        widget.setLayout(layout3)
-        self.setCentralWidget(widget)
-        #self.setCentralWidget(button)
-        self.setFixedSize(QSize(1280, 700))
-    def the_button_was_clicked(self, checked):
-        removeBackground()
-        self.w = FileSelectArgentum()
-        self.w.show()
-    def Button2_click(self, checked):
-        BackendCarbonRead()
-    def Button3_click(self, checked):
-        self.y = FutureCoolStuf()
-        self.y.show()
+#Welcome to the weird mid-front end, it will be here until Milestone 6
+def CarbonMidFrontEndCreate():
+    print("Let's start the writing")
+    print("What will you name your subject?")
+    Name = input()
+    print(Name, ", I like it")
+    print("How many values will you track?")
+    Vtotrack = int(input())
+    a = 1
+    global NameValue
+    for a in range(Vtotrack):
+       print("what shall this thing to track be called?")
+       Value1 = input()
+       NameValue.append(Value1)
+       print("What is its value?")
+       Value2 = float(input())
+       print(Value2)
+       NameValue.append(Value2)
+       print("Just wait for the backend to be made")
+       BackendCarbonEntryCreator(NameValue)
+       NameValue = [] #Flush the value to prevent corrupt writings
+    
+def CarbonMidFrontEndShow():
+    Entries = BackendCarbonRead()
+    print(Entries)
+    x = 1
+    if Entries > 0:
+     #This part is Not finished, you can't edit
+     print("Looks like we found some entries")
+     while x <= Entries:
+        print(CarbonIndexEntries[x])
+        print(x)
+        x = x + 1
+    else:
+       print("Looks like you have no entries :()")
+       print("Lets Fix that, if you wish")
+       CarbonMidFrontEndCreate()
 
-class FileSelectArgentum(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.label = QLabel("Argentum file select will go here in milestone 4!")
-        layout.addWidget(self.label)
-        self.setLayout(layout)
+def MidFrontEndChoiceModule():
+   print("Choose what module to load")
+   choose = int(input("1 - Carbon, 2 - Argentum"))
+   if choose  == 1:
+      BackendCarbonRead()
+      CarbonMidFrontEndShow()
 
-class CarbonEntryCreator(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout1 = QVBoxLayout()
-        self.label = QLabel("Carbon editor to be up and running in milestone 2!!")
-        layout1.addWidget(self.label)
-        self.setLayout(layout1)
 
-class FutureCoolStuf(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout4 = QVBoxLayout()
-        self.label = QLabel("Milestone 1 - A Menu you can click! - done")
-        self.label1 = QLabel("Milestone 2 - Carbon saves files - You are (almost) here")
-        self.label2 = QLabel("Milestone 3 - Now this is not just a slipper isolator")        
-        self.label3  = QLabel("Milestone 4 - Now you have File selection")
-        self.label4  = QLabel("Milestone 5 - Color isolator")
-        self.label5 = QLabel("Milestone 6 - Finishing touches for full relase")
-        layout4.addWidget(self.label)
-        layout4.addWidget(self.label1)
-        layout4.addWidget(self.label2)
-        layout4.addWidget(self.label3)
-        layout4.addWidget(self.label4)
-        layout4.addWidget(self.label5)        
-        self.setLayout(layout4)
- #, currently pre-milestone 1; the future milestones are \n Milestone 1 - The main menu gets a layout \n Milestone 2 - Carbon is up and running \n Milestone 3 - Multiple File Output support \n Milestone 4 - File selection \n Milestone 5 - Color isolation \n Milestone 6 - Finished UI and graphics")
-        
-# You need one (and only one) QApplication instance per application.
-# Pass in sys.argv to allow command line arguments for your app.
-# If you know you won't use command line arguments QApplication([]) works too.
-app= QApplication([])
-#Create a window
-window = Mainwindows()
-window.show()#Show the window (Why hide it tho?)
 
-app.exec()
+print("Welcome to command line hexagono")
+print("You're in build...")
+print(BuildVersion)
+print("this will be the front-end for now")
+print("I don't want a backend tangled with the front")
+print("It just kills programs, ask the installer")
+MidFrontEndChoiceModule()
+
 #Installer = Tk() #Create window for gui boot
 #Installer.geometry("1280x720") #Set resolution
 #Installer.title("")
