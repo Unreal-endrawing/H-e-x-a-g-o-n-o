@@ -12,6 +12,19 @@ Wip
 
 *Run
 
+## Roadmap
+Milestone 1 - A non functional interface | Done
+
+Milestone 2 - Carbon editor
+
+Milestone 3 - Multiple image isolation
+
+Milestone 4 - File selection
+
+Milestone 5 - Color isolation
+
+Milestone 6 - The program is finished now
+
 ## Necessary dependencies for running the programs
 ### Hexagono (main.py)
 
