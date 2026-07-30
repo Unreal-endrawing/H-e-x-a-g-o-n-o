@@ -1,6 +1,9 @@
 # H-e-x-a-g-o-n-o
 Retronim : "Herramienta Ecologica "X" para Acelerar Graficación de datos Otenidos No Oblicua"
 
+## AI USAGE DISCLOSURE
+I asked gemini if some stuff was posible and why stuff was happening, BUT it didn't write a single line of code
+## TLDR: Gemini made none of the currently over 200 python lines of code
 ## Usage
 Wip
 
