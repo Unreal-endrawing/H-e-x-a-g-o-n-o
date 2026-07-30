@@ -40,6 +40,7 @@ Rawpics = r"C:\Hexagono\import" #Imported pictures as is go here
 Pics = r"C:\Hexagono\processed" #Pictures without background go here (Finished or not, not finished get marked for deletion)
 Saveflags = r"C:\Hexagono\registry" #Registry of program settings and sujects go here
 program = r"C:\Hexagono\Program" #Main.py (argentum and caron go here)
+preset = r"C:\Hexagpno\registry\Presets"
 Bc = "#" #Character to separate installer flags
 ErrorCodes = ["HEXAGONO is already installed, uninstall it and try again", "Unknown error", "The installer is abandoned, it will be remade from scratch soon, maybe even MSI! stay patient"]
 class ModernErrorWindow(QWidget,):
@@ -131,6 +132,7 @@ def InstallHexagono():
        os.makedirs(Rawpics)
        os.makedirs(Pics)
        os.makedirs(Saveflags)
+       os.makedirs(preset)
        #os.makedirs(program)
        shutil.copyfile(r"main.py",r"C:\Hexagono\main.py" )
        shutil.copyfile(r"icon.png", r"C:\Hexagono\icon.png")
@@ -150,7 +152,8 @@ def InstallHexagono():
        os.makedirs(Main, exist_ok=True)
        os.makedirs(Rawpics)
        os.makedirs(Pics)
-       os.makedirs(Saveflags)       
+       os.makedirs(Saveflags)
+       os.makedirs       
        shutil.copyfile(r"main.py",r"C:\Hexagono\main.py" )
        shutil.copyfile(r"icon.png", r"C:\Hexagono\icon.png")
        shutil.copyfile(r"IMG_1309.png", r"C:\Hexagono\IMG_1309.png")       
