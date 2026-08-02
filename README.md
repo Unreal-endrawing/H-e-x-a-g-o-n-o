@@ -17,17 +17,20 @@ Wip
 
 ## Roadmap
 ~~Milestone 1 - A non functional interface | Done~~
-Forget about it for now, interface has been moved to milestone 5 (Previously 6)
+~~Forget about it for now, interface has been moved to milestone 5 (Previously 6)~~
 
-Milestone 1 - Carbon editor
+~~Milestone 1 - Carbon editor~~
 
-Milestone 2 - Multiple image isolation
+~~Milestone 2 - Multiple image isolation~~
 
-Milestone 3 - File selection
+~~Milestone 3 - File selection~~
 
-Milestone 4 - Color isolation
+~~Milestone 4 - Color isolation~~
 
-Milestone 5 - The program is finished now
+~~Milestone 5 - The program is finished now~~
+Ignore all of that, for now you will get a zombie carbon just to get argentum working and you will be happy about it
+
+This is my longhorn minus development hell for years
 
 ## Necessary dependencies for running the programs
 ### Hexagono (main.py)
